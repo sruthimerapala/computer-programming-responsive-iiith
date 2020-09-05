@@ -74,17 +74,23 @@ window.view = {
 		for ( i = 0 ; i < inputValue ; i++ ) {
 			var random = Math.floor(Math.random()*15)
 			this.numbers.push(String(random))
-		}
+		     }
 	},
 	getUserInput: function() {
 		var inputValue = document.getElementById('userInput').value
 		inputValue = inputValue.replace(/\s/g, ',')
 		this.numbers = inputValue.split(',')
 	},
+        textareadisable:function(userInput){
+                document.getElementById(userInput).disabled = true
+                },
 	takeInputFromRadioBox: function() {
 		var element = document.getElementsByName('radio_group')
 		if ( element[0].checked )
+                      {
 			this.generateRandomNumbers()
+                        this.textareadisable()
+                       }
 		else if (element[1].checked)
 			this.getUserInput()
 	},
